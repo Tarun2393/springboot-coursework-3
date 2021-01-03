@@ -1,0 +1,18 @@
+
+.container {
+  margin-top: 15px;
+}
+
+div.jumbotron {
+	background-color: #f8f8f8;
+	text-align: center;  
+	border-color: #e7e7e7;
+}
+
+thead, th {
+    text-align:center;	
+}
+
+h3 {
+  margin: 0px;
+}

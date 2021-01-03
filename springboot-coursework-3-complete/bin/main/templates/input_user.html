@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/busyqa.css}"/>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		   <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
+		      <img th:src="@{/img/busyqa.png}" alt="busyQA logo" /> <br />
+		   </div>
+		</div>
+		<div class="row">
+           <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">	  
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#">System</a>
+						</div>
+						<ul class="nav navbar-nav">
+						    <li><a th:href="@{/index}">Index</a></li>
+							<li><a th:href="@{/list_users}">List Users</a></li>
+							<li class="active"><a th:href="@{/input_user}">Create User</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+        <div class="row">
+           <div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">		
+				<form th:action="@{/create_user}" method="post" >
+					<div class="form-group">
+						<label for="nombre">First Name</label>
+						<input type="text" class="form-control" id="first" name="first" placeholder="Type in First Name" required>
+					</div>
+					<div class="form-group">
+						<label for="nombre">Last Name</label>
+						<input type="text" class="form-control" id="last" name="last" placeholder="Type in Last Name" required>
+					</div>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" class="form-control" id="username" name="username" placeholder="Type in Username" required>
+					</div>
+					<div class="form-group">
+						<label for="clave">Password</label>
+						<input type="password" class="form-control" id="password" name="password" placeholder="Type in Password" required>
+					</div>
+					<div class="form-group">
+						<label for="birth">Birth (dd-mm-yyyy)</label>
+						<input type="text" class="form-control" id="birth" name="birth" placeholder="Type in Birthday" required>
+					</div>
+					<div class="form-group">
+		                <label for="role">Role</label>
+		                <select class="form-control" id="id_role" name="id_role">
+		                  <option th:each="role : ${list_roles}"
+		                          th:value="${role.idRole}"
+		                          th:text="${role.nameRole}">
+		                  </option>
+		                </select>
+		            </div>
+					<br />
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
